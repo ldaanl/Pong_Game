@@ -81,7 +81,7 @@ while band:
     if score.score_paddle1 >= 5:
         print('JUGADOR DE LA DERECHA ES EL GANADOR'.center(100,'='))
         band = False
-    elif score.score_paddle2 >= 10:
+    elif score.score_paddle2 >= 5:
         print('JUGADOR DE LA IZQUIERDA ES EL GANADOR'.center(100,'='))
         band = False
 
