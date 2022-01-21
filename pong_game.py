@@ -30,6 +30,13 @@ while band:
 
     #* Movimiento de la pelota
     ball.movement
+    #? Choque con los limites de la pantalla
+    if ball.ycor() > 260 or ball.ycor() < -260:
+        ball.luffyg4
+    #? Choque con los paddles
+    if ball.distance(paddle1) < 30 or ball.distance(paddle2) < 30 :
+        ball.luffyg4x
+        
 
 
 screen.exitonclick()
