@@ -1,6 +1,20 @@
-from turtle import Screen
+from turtle import Screen, Turtle
 from paddles import Paddles
 from pelota import Ball
+from score import Score
+
+def first_lines(line):
+    """
+    Esta función dibuja una linea punteada del centro de la pantalla
+    hacia abajo hasta el limite de esta
+    -------
+    Args:
+        line -> Recibe un objeto de la clase Turtle
+    -------
+    """
+    line.stamp()
+    line.forward(50)
+
 
 #* Configuración de la Pantalla 
 screen = Screen()
@@ -16,12 +30,30 @@ paddle2 = Paddles(-285,0)
 #* Inicializamos la pelota
 ball = Ball()
 
+#* Inicializamos el marcador
+score = Score()
+
 #* Configuración del movimiento de los paddles
 screen.listen()
 screen.onkey(paddle1.move_up, "Up")
 screen.onkey(paddle1.move_down, "Down")
 screen.onkey(paddle2.move_up, "w")
 screen.onkey(paddle2.move_down, "s")
+
+#* Linea del tablero
+cont, line = 0, Turtle("square")
+line.color('white')
+line.right(90)
+line.pu()
+while cont <= 300:
+    first_lines(line)
+    cont += 50
+line.home()
+line.right(270)
+cont = 0
+while cont <= 300:
+    first_lines(line)
+    cont += 50
 
 band = True
 while band:
@@ -40,9 +72,17 @@ while band:
     #* Puntos
     if ball.xcor() > 300:
         ball.reset_ball
+        score.points_paddle1
     
     if ball.xcor() < -300:
         ball.reset_ball
-
+        score.points_paddle2
+    
+    if score.score_paddle1 >= 5:
+        print('JUGADOR DE LA DERECHA ES EL GANADOR'.center(100,'='))
+        band = False
+    elif score.score_paddle2 >= 10:
+        print('JUGADOR DE LA IZQUIERDA ES EL GANADOR'.center(100,'='))
+        band = False
 
 screen.exitonclick()
