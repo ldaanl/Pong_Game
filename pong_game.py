@@ -36,7 +36,13 @@ while band:
     #? Choque con los paddles
     if ball.distance(paddle1) < 30 or ball.distance(paddle2) < 30 :
         ball.luffyg4x
-        
+    
+    #* Puntos
+    if ball.xcor() > 300:
+        ball.reset_ball
+    
+    if ball.xcor() < -300:
+        ball.reset_ball
 
 
 screen.exitonclick()
