@@ -1,5 +1,6 @@
 from turtle import Screen
 from paddles import Paddles
+from pelota import Ball
 
 #* Configuración de la Pantalla 
 screen = Screen()
@@ -12,6 +13,9 @@ screen.tracer(0)
 paddle1 = Paddles(285,0)
 paddle2 = Paddles(-285,0)
 
+#* Inicializamos la pelota
+ball = Ball()
+
 #* Configuración del movimiento de los paddles
 screen.listen()
 screen.onkey(paddle1.move_up, "Up")
@@ -23,6 +27,9 @@ band = True
 while band:
     #* Visualizamos pantalla
     screen.update()
+
+    #* Movimiento de la pelota
+    ball.movement
 
 
 screen.exitonclick()
