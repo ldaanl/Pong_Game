@@ -14,6 +14,11 @@ class Ball(Turtle):
         self.pu()
     
     @property
+    def reset_ball(self):
+        self.goto(0, 0)
+        self.luffyg4x
+    
+    @property
     def movement(self):
         x2 = self.xcor() + self.x
         y2 = self.ycor() + self.y
@@ -26,4 +31,6 @@ class Ball(Turtle):
     @property
     def luffyg4x(self):
         self.x *= -1
+    
+
 
